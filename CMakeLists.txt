@@ -19,7 +19,7 @@
 ####################################################################################
 cmake_minimum_required(VERSION 3.15)
 
-project(eaapi CXX)
+project(eapi CXX)
 
 set(PROJECT_DESCRIPTION "Hercules is an ahead of time compiler for a subset of the Python language framework.")
 set(PROJECT_VERSION_MAJOR 0)
