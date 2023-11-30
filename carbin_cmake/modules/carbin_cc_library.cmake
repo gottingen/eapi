@@ -130,16 +130,16 @@ function(carbin_cc_library)
     endif ()
     if (NOT CARBIN_CC_LIB_IS_INTERFACE)
         if (NOT CARBIN_CC_LIB_SHARED)
-            add_library(${CARBIN_CC_LIB_NAME}_STATIC STATIC ${CARBIN_CC_LIB_SOURCES} ${CARBIN_CC_LIB_HEADERS})
-            target_compile_options(${CARBIN_CC_LIB_NAME}_STATIC PRIVATE ${CARBIN_CC_LIB_COPTS})
-            target_link_libraries(${CARBIN_CC_LIB_NAME}_STATIC PRIVATE ${CARBIN_CC_LIB_DEPS})
+            add_library(${CARBIN_CC_LIB_NAME} STATIC ${CARBIN_CC_LIB_SOURCES} ${CARBIN_CC_LIB_HEADERS})
+            target_compile_options(${CARBIN_CC_LIB_NAME} PRIVATE ${CARBIN_CC_LIB_COPTS})
+            target_link_libraries(${CARBIN_CC_LIB_NAME} PRIVATE ${CARBIN_CC_LIB_DEPS})
             if (CARBIN_CC_LIB_CUDA)
-                set_target_properties(${CARBIN_CC_LIB_NAME}_STATIC PROPERTIES LINKER_LANGUAGE CUDA)
+                set_target_properties(${CARBIN_CC_LIB_NAME} PROPERTIES LINKER_LANGUAGE CUDA)
             else ()
-                set_target_properties(${CARBIN_CC_LIB_NAME}_STATIC PROPERTIES LINKER_LANGUAGE CXX)
+                set_target_properties(${CARBIN_CC_LIB_NAME} PROPERTIES LINKER_LANGUAGE CXX)
             endif ()
 
-            target_include_directories(${CARBIN_CC_LIB_NAME}_STATIC ${CARBIN_INTERNAL_INCLUDE_WARNING_GUARD}
+            target_include_directories(${CARBIN_CC_LIB_NAME} ${CARBIN_INTERNAL_INCLUDE_WARNING_GUARD}
                     PUBLIC
                     ${CARBIN_CC_LIB_INCLUDES}
                     "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>"
@@ -147,25 +147,25 @@ function(carbin_cc_library)
                     "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
                     )
 
-            target_compile_definitions(${CARBIN_CC_LIB_NAME}_STATIC
+            target_compile_definitions(${CARBIN_CC_LIB_NAME}
                     PUBLIC
                     ${CARBIN_CC_LIB_DEFINITIONS}
                     )
-            set_property(TARGET ${CARBIN_CC_LIB_NAME}_STATIC PROPERTY POSITION_INDEPENDENT_CODE 1)
-            set_target_properties(${CARBIN_CC_LIB_NAME}_STATIC PROPERTIES OUTPUT_NAME ${CARBIN_CC_LIB_NAME} CLEAN_DIRECT_OUTPUT 1)
-            add_library(${CARBIN_CC_LIB_NAMESPACE}::${CARBIN_CC_LIB_NAME} ALIAS ${CARBIN_CC_LIB_NAME}_STATIC)
+            set_property(TARGET ${CARBIN_CC_LIB_NAME} PROPERTY POSITION_INDEPENDENT_CODE 1)
+            set_target_properties(${CARBIN_CC_LIB_NAME} PROPERTIES OUTPUT_NAME ${CARBIN_CC_LIB_NAME} CLEAN_DIRECT_OUTPUT 1)
+            add_library(${CARBIN_CC_LIB_NAMESPACE}::${CARBIN_CC_LIB_NAME} ALIAS ${CARBIN_CC_LIB_NAME})
         endif ()
 
         if (CARBIN_CC_LIB_SHARED)
-            add_library(${CARBIN_CC_LIB_NAME}_SHARED SHARED ${CARBIN_CC_LIB_SOURCES} ${CARBIN_CC_LIB_HEADERS})
-            target_compile_options(${CARBIN_CC_LIB_NAME}_SHARED PUBLIC ${CARBIN_CC_LIB_COPTS})
-            target_link_libraries(${CARBIN_CC_LIB_NAME}_SHARED PUBLIC ${CARBIN_CC_LIB_DEPS})
+            add_library(${CARBIN_CC_LIB_NAME}_shared SHARED ${CARBIN_CC_LIB_SOURCES} ${CARBIN_CC_LIB_HEADERS})
+            target_compile_options(${CARBIN_CC_LIB_NAME}_shared PUBLIC ${CARBIN_CC_LIB_COPTS})
+            target_link_libraries(${CARBIN_CC_LIB_NAME}_shared PUBLIC ${CARBIN_CC_LIB_DEPS})
             if (CARBIN_CC_LIB_CUDA)
-                set_target_properties(${CARBIN_CC_LIB_NAME}_SHARED PROPERTIES LINKER_LANGUAGE CUDA)
+                set_target_properties(${CARBIN_CC_LIB_NAME}_shared PROPERTIES LINKER_LANGUAGE CUDA)
             else ()
-                set_target_properties(${CARBIN_CC_LIB_NAME}_SHARED PROPERTIES LINKER_LANGUAGE CXX)
+                set_target_properties(${CARBIN_CC_LIB_NAME}_shared PROPERTIES LINKER_LANGUAGE CXX)
             endif ()
-            target_include_directories(${CARBIN_CC_LIB_NAME}_SHARED ${CARBIN_INTERNAL_INCLUDE_WARNING_GUARD}
+            target_include_directories(${CARBIN_CC_LIB_NAME}_shared ${CARBIN_INTERNAL_INCLUDE_WARNING_GUARD}
                     PUBLIC
                     ${CARBIN_CC_LIB_INCLUDES}
                     "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>"
@@ -173,13 +173,13 @@ function(carbin_cc_library)
                     "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
                     )
 
-            target_compile_definitions(${CARBIN_CC_LIB_NAME}_SHARED
+            target_compile_definitions(${CARBIN_CC_LIB_NAME}_shared
                     PUBLIC
                     ${CARBIN_CC_LIB_DEFINITIONS}
                     )
-            set_property(TARGET ${CARBIN_CC_LIB_NAME}_SHARED PROPERTY POSITION_INDEPENDENT_CODE 1)
-            set_target_properties(${CARBIN_CC_LIB_NAME}_SHARED PROPERTIES OUTPUT_NAME ${CARBIN_CC_LIB_NAME} CLEAN_DIRECT_OUTPUT 1)
-            add_library(${CARBIN_CC_LIB_NAMESPACE}::${CARBIN_CC_LIB_NAME}_shared ALIAS ${CARBIN_CC_LIB_NAME}_SHARED)
+            set_property(TARGET ${CARBIN_CC_LIB_NAME}_shared PROPERTY POSITION_INDEPENDENT_CODE 1)
+            set_target_properties(${CARBIN_CC_LIB_NAME}_shared PROPERTIES OUTPUT_NAME ${CARBIN_CC_LIB_NAME} CLEAN_DIRECT_OUTPUT 1)
+            add_library(${CARBIN_CC_LIB_NAMESPACE}::${CARBIN_CC_LIB_NAME}_shared ALIAS ${CARBIN_CC_LIB_NAME}_shared)
         endif ()
 
     else (CARBIN_CC_LIB_IS_INTERFACE)
@@ -202,7 +202,7 @@ function(carbin_cc_library)
 
     if (CARBIN_CC_LIB_PUBLIC)
         if (CARBIN_CC_LIB_SHARED)
-            install(TARGETS ${CARBIN_CC_LIB_NAME}_SHARED
+            install(TARGETS ${CARBIN_CC_LIB_NAME}_shared
                     EXPORT ${PROJECT_NAME}Targets
                     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
                     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
@@ -218,7 +218,7 @@ function(carbin_cc_library)
                     INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
                     )
         else ()
-            install(TARGETS ${CARBIN_CC_LIB_NAME}_STATIC
+            install(TARGETS ${CARBIN_CC_LIB_NAME}
                     EXPORT ${PROJECT_NAME}Targets
                     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
                     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}

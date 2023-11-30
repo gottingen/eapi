@@ -81,6 +81,19 @@ carbin_cc_library(
         PUBLIC
 )
 
+if (BUILD_SHARED_LIBRARY)
+    carbin_cc_library(
+            NAMESPACE eapi
+            NAME eapi
+            SOURCES ${PROTO_SRCS}
+            COPTS ${CARBIN_DEFAULT_COPTS}
+            DEPS
+            ${CARBIN_DYLINK}
+            PUBLIC
+            SHARED
+    )
+endif ()
+
 ####################################################################
 # belows are auto, edit it be cation
 ####################################################################
