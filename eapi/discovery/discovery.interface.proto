@@ -1,5 +1,4 @@
-// Copyright 2023 The Turbo Authors.
-//
+// Copyright 2023 The Elastic Architecture Infrastructure Authors.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,6 +11,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
 syntax = "proto2";
 import "eapi/discovery/raft.proto";
 import "eapi/discovery/discovery.struct.proto";
@@ -23,14 +23,14 @@ option cc_generic_services = true;
 
 service DiscoveryService {
   rpc raft_control(RaftControlRequest) returns (RaftControlResponse);
-  rpc meta_manager(MetaManagerRequest) returns (MetaManagerResponse);
-  rpc meta_query(QueryRequest) returns (QueryResponse);
+  rpc meta_manager(DiscoveryManagerRequest) returns (DiscoveryManagerResponse);
+  rpc meta_query(DiscoveryQueryRequest) returns (DiscoveryQueryResponse);
   rpc tso_service(TsoRequest) returns (TsoResponse);
 };
 
 service DiscoveryRouterService {
   rpc raft_control(RaftControlRequest) returns (RaftControlResponse);
-  rpc meta_manager(MetaManagerRequest) returns (MetaManagerResponse);
-  rpc meta_query(QueryRequest) returns (QueryResponse);
+  rpc meta_manager(DiscoveryManagerRequest) returns (DiscoveryManagerResponse);
+  rpc meta_query(DiscoveryQueryRequest) returns (DiscoveryQueryResponse);
   rpc tso_service(TsoRequest) returns (TsoResponse);
 };

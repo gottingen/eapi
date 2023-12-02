@@ -1,5 +1,4 @@
-// Copyright 2023 The Elastic AI Search Authors.
-//
+// Copyright 2023 The Elastic Architecture Infrastructure Authors.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -101,7 +100,7 @@ message ServletHeartbeat {
 }
 
 
-message MetaManagerRequest {
+message DiscoveryManagerRequest {
   required OpType               op_type                = 1;
   optional NameSpaceInfo        namespace_info         = 2;
   optional UserPrivilege        user_privilege         = 3;
@@ -114,7 +113,7 @@ message MetaManagerRequest {
   optional ServletInstance      instance_info          = 10;
 };
 
-message MetaManagerResponse {
+message DiscoveryManagerResponse {
   required ErrCode errcode                            = 1;
   optional string errmsg                              = 2;
   optional string leader                              = 3;
@@ -124,7 +123,7 @@ message MetaManagerResponse {
 };
 
 
-message QueryRequest {
+message DiscoveryQueryRequest {
   required QueryOpType   op_type                       = 1;
   optional string        instance_address              = 2;
   optional string        user_name                     = 3;
@@ -138,7 +137,7 @@ message QueryRequest {
   optional string        env                           = 11;
 };
 
-message QueryResponse {
+message DiscoveryQueryResponse {
   required ErrCode                   errcode                       = 1;
   optional string                    errmsg                        = 2;
   optional string                    leader                        = 3;
