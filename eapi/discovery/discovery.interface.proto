@@ -23,14 +23,14 @@ option cc_generic_services = true;
 
 service DiscoveryService {
   rpc raft_control(RaftControlRequest) returns (RaftControlResponse);
-  rpc meta_manager(DiscoveryManagerRequest) returns (DiscoveryManagerResponse);
-  rpc meta_query(DiscoveryQueryRequest) returns (DiscoveryQueryResponse);
+  rpc discovery_manager(DiscoveryManagerRequest) returns (DiscoveryManagerResponse);
+  rpc discovery_query(DiscoveryQueryRequest) returns (DiscoveryQueryResponse);
   rpc tso_service(TsoRequest) returns (TsoResponse);
 };
 
 service DiscoveryRouterService {
   rpc raft_control(RaftControlRequest) returns (RaftControlResponse);
-  rpc meta_manager(DiscoveryManagerRequest) returns (DiscoveryManagerResponse);
-  rpc meta_query(DiscoveryQueryRequest) returns (DiscoveryQueryResponse);
+  rpc discovery_manager(DiscoveryManagerRequest) returns (DiscoveryManagerResponse);
+  rpc discovery_query(DiscoveryQueryRequest) returns (DiscoveryQueryResponse);
   rpc tso_service(TsoRequest) returns (TsoResponse);
 };
