@@ -14,10 +14,10 @@
 //
 
 syntax="proto2";
-package EA.servlet;
+package EA.discovery;
 option cc_generic_services = true;
 
-import "eapi/servlet/error_code.proto";
+import "eapi/discovery/error_code.proto";
 
 enum RaftControlOp {
   SetPeer = 1;

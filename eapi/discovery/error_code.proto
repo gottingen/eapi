@@ -14,7 +14,7 @@
 //
 
 syntax="proto2";
-package EA.servlet;
+package EA.discovery;
 option cc_generic_services = true;
 
 enum ErrCode {

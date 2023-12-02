@@ -13,23 +13,22 @@
 // limitations under the License.
 //
 syntax = "proto2";
-import "eapi/servlet/raft.proto";
-import "eapi/servlet/servlet.struct.proto";
-import "eapi/servlet/tso.struct.proto";
-import "eapi/servlet/error_code.proto";
+import "eapi/discovery/raft.proto";
+import "eapi/discovery/discovery.struct.proto";
+import "eapi/discovery/tso.struct.proto";
 
-package EA.servlet;
+package EA.discovery;
 option cc_generic_services = true;
 //option cc_enable_arenas = true;
 
-service MetaService {
+service DiscoveryService {
   rpc raft_control(RaftControlRequest) returns (RaftControlResponse);
   rpc meta_manager(MetaManagerRequest) returns (MetaManagerResponse);
   rpc meta_query(QueryRequest) returns (QueryResponse);
   rpc tso_service(TsoRequest) returns (TsoResponse);
 };
 
-service RouterService {
+service DiscoveryRouterService {
   rpc raft_control(RaftControlRequest) returns (RaftControlResponse);
   rpc meta_manager(MetaManagerRequest) returns (MetaManagerResponse);
   rpc meta_query(QueryRequest) returns (QueryResponse);

@@ -14,14 +14,14 @@
 //
 
 syntax="proto2";
-package EA.servlet;
+package EA.discovery;
 option cc_generic_services = true;
-import "eapi/servlet/version.proto";
-import "eapi/servlet/error_code.proto";
-import "eapi/servlet/optype.proto";
-import "eapi/servlet/user.struct.proto";
-import "eapi/servlet/unique_id.proto";
-import "eapi/servlet/config.struct.proto";
+import "eapi/discovery/version.proto";
+import "eapi/discovery/error_code.proto";
+import "eapi/discovery/optype.proto";
+import "eapi/discovery/user.struct.proto";
+import "eapi/discovery/unique_id.proto";
+import "eapi/discovery/config.struct.proto";
 
 enum Status {
   NORMAL = 1;

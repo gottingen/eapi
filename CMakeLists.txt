@@ -51,16 +51,16 @@ include(user_cxx_config)
 
 include(carbin_cc_proto)
 set(PROTO_FILES
-        eapi/servlet/error_code.proto
-        eapi/servlet/optype.proto
-        eapi/servlet/config.struct.proto
-        eapi/servlet/raft.proto
-        eapi/servlet/servlet.interface.proto
-        eapi/servlet/servlet.struct.proto
-        eapi/servlet/tso.struct.proto
-        eapi/servlet/unique_id.proto
-        eapi/servlet/user.struct.proto
-        eapi/servlet/version.proto
+        eapi/discovery/error_code.proto
+        eapi/discovery/optype.proto
+        eapi/discovery/config.struct.proto
+        eapi/discovery/raft.proto
+        eapi/discovery/discovery.interface.proto
+        eapi/discovery/discovery.struct.proto
+        eapi/discovery/tso.struct.proto
+        eapi/discovery/unique_id.proto
+        eapi/discovery/user.struct.proto
+        eapi/discovery/version.proto
 )
 
 file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/output/include/eaproto)
