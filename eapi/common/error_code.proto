@@ -13,7 +13,7 @@
 //
 
 syntax="proto2";
-package EA.discovery;
+package EA;
 option cc_generic_services = true;
 
 enum ErrCode {

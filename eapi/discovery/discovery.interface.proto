@@ -13,7 +13,7 @@
 //
 
 syntax = "proto2";
-import "eapi/discovery/raft.proto";
+import "eapi/raft/raft.proto";
 import "eapi/discovery/discovery.struct.proto";
 import "eapi/discovery/tso.struct.proto";
 

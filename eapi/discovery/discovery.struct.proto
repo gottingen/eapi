@@ -16,7 +16,7 @@ syntax="proto2";
 package EA.discovery;
 option cc_generic_services = true;
 import "eapi/discovery/version.proto";
-import "eapi/discovery/error_code.proto";
+import "eapi/common/error_code.proto";
 import "eapi/discovery/optype.proto";
 import "eapi/discovery/user.struct.proto";
 import "eapi/discovery/unique_id.proto";

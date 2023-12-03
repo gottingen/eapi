@@ -16,7 +16,7 @@ syntax="proto2";
 package EA.discovery;
 option cc_generic_services = true;
 import "eapi/discovery/optype.proto";
-import "eapi/discovery/error_code.proto";
+import "eapi/common/error_code.proto";
 
 message TsoTimestamp {
   optional int64    physical = 1;
